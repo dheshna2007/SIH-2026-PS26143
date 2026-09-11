@@ -1187,4 +1187,334 @@ footer small {
     width: 100%;
   }
 
-} 
+}
+
+/* ==========================================================================
+   OceanTrace TideTrace API Integration Extensions
+   ========================================================================== */
+
+.custom-map-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin-inner {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.75);
+  border: 2px solid;
+}
+
+.pin-inner.spill {
+  background: rgba(255, 102, 95, 0.25);
+  border-color: #ff665f;
+  color: #ff665f;
+}
+
+.pin-inner.origin {
+  background: rgba(98, 216, 200, 0.25);
+  border-color: #62d8c8;
+  color: #62d8c8;
+}
+
+.pin-inner.vessel {
+  background: rgba(243, 201, 105, 0.25);
+  border-color: #f3c969;
+  color: #f3c969;
+}
+
+.vessel-empty-card {
+  background: rgba(14, 31, 35, 0.85);
+  border: 1px solid rgba(98, 216, 200, 0.18);
+  padding: 35px 30px;
+}
+
+.vessel-empty-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.vessel-empty-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(98, 216, 200, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #62d8c8;
+  background: rgba(98, 216, 200, 0.08);
+}
+
+.vessel-empty-header h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #e7f3f1;
+}
+
+.vessel-empty-header p {
+  margin: 0;
+  color: #789692;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.ais-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+  border-top: 1px solid rgba(98, 216, 200, 0.1);
+  padding-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .ais-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ais-meta-item {
+  background: rgba(8, 20, 24, 0.65);
+  border: 1px solid rgba(98, 216, 200, 0.1);
+  padding: 14px 16px;
+}
+
+.ais-meta-item span {
+  display: block;
+  font-size: 8px;
+  color: #506965;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+}
+
+.ais-meta-item strong {
+  display: block;
+  font-size: 11px;
+  color: #a6c2be;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.provenance-section {
+  margin-top: 55px;
+  border: 1px solid rgba(98, 216, 200, 0.14);
+  background: rgba(8, 20, 24, 0.7);
+  padding: 30px;
+}
+
+.provenance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.provenance-card {
+  background: rgba(14, 31, 35, 0.6);
+  border: 1px solid rgba(98, 216, 200, 0.1);
+  padding: 18px;
+}
+
+.provenance-card span {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #58716e;
+  margin-bottom: 8px;
+}
+
+.provenance-card strong {
+  display: block;
+  font-size: 13px;
+  color: #62d8c8;
+  margin-bottom: 6px;
+}
+
+.provenance-card p {
+  margin: 0;
+  font-size: 10px;
+  color: #718a87;
+  line-height: 1.5;
+}
+
+.error-banner {
+  background: rgba(255, 102, 95, 0.12);
+  border: 1px solid rgba(255, 102, 95, 0.4);
+  color: #ff8e89;
+  padding: 16px 20px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 11px;
+}
+
+.error-banner button {
+  background: #ff665f;
+  color: #050d10;
+  border: none;
+  padding: 8px 14px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.demo-quick-launch {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.demo-tag {
+  display: inline-block;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  background: rgba(98, 216, 200, 0.12);
+  color: #62d8c8;
+  padding: 3px 8px;
+  border-radius: 2px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.analyzing-step-ticker {
+  margin-top: 15px;
+  color: #62d8c8;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.data-tag {
+  display: inline-block;
+  font-size: 7px;
+  letter-spacing: 1px;
+  padding: 2px 6px;
+  margin-top: 5px;
+  border-radius: 2px;
+  background: rgba(98, 216, 200, 0.1);
+  color: #62d8c8;
+  border: 1px solid rgba(98, 216, 200, 0.2);
+}
+
+.data-tag.unavailable {
+  background: rgba(255, 102, 95, 0.1);
+  color: #ff8e89;
+  border-color: rgba(255, 102, 95, 0.2);
+}
+
+.map-legend {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+  z-index: 500;
+  background: rgba(4, 14, 17, 0.94);
+  border: 1px solid rgba(98, 216, 200, 0.25);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  pointer-events: auto;
+  backdrop-filter: blur(4px);
+}
+
+.legend-title {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #62d8c8;
+  font-weight: 800;
+  margin-bottom: 2px;
+  border-bottom: 1px solid rgba(98, 216, 200, 0.15);
+  padding-bottom: 4px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #c5dbd8;
+  font-weight: 600;
+}
+
+.legend-swatch {
+  width: 20px;
+  height: 10px;
+  border-radius: 1px;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.legend-swatch.spill {
+  background: rgba(255, 71, 87, 0.5);
+  border: 2px solid #ff3344;
+}
+
+.legend-swatch.origin {
+  background: rgba(0, 240, 255, 0.25);
+  border: 2px dashed #00f0ff;
+}
+
+.legend-swatch.hindcast {
+  height: 0;
+  border-top: 3px dashed #00f0ff;
+}
+
+.legend-swatch.forecast {
+  background: rgba(255, 165, 2, 0.3);
+  border: 2px dashed #ffa502;
+}
+
+.basemap-toggle {
+  display: flex;
+  align-items: center;
+  background: rgba(8, 20, 24, 0.9);
+  border: 1px solid rgba(98, 216, 200, 0.25);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.basemap-toggle button {
+  background: transparent;
+  border: none;
+  color: #6a8884;
+  font-size: 7.5px;
+  letter-spacing: 1.2px;
+  padding: 6px 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.basemap-toggle button:hover {
+  color: #e7f3f1;
+}
+
+.basemap-toggle button.active {
+  background: rgba(98, 216, 200, 0.22);
+  color: #62d8c8;
+}
+
+ 
